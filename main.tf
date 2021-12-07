@@ -10,7 +10,7 @@ provider "aci" {
   url            = "https://192.168.1.100"
   username       = "admin"
   password       = "cisco123"
-  
+  insecure = true
 }
 
 resource "aci_tenant" "test" {
