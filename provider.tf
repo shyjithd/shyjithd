@@ -1,11 +1,11 @@
 terraform {
   required_providers {
     aci = {
-      source = "ciscodevnet/aci"
+      source = "CiscoDevNet/aci"
+      version = "1.0.1"
     }
   }
 }
-
 provider "aci" {
   #version = "0.3.4"
   # Cisco ACI user name
