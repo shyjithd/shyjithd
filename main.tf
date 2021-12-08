@@ -4,6 +4,7 @@ terraform {
       source = "ciscodevnet/aci"
     }
   }
+}
 provider "aci" {
   username = "admin"
   password = "cisco123"
