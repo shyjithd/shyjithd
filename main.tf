@@ -17,6 +17,11 @@ data "vsphere_datacenter" "dc" {
   name = "Datacenter"
 }
 
+data "vsphere_resource_pool" "pool" {
+  # If you haven't resource pool, put "Resources" after cluster name
+  name          = "CPOC-POOL"
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
 
 data "vsphere_host" "host" {
   name          = "192.168.1.104"
@@ -51,6 +56,7 @@ resource "vsphere_virtual_machine" "vm-one" {
   datastore_id     = data.vsphere_datastore.datastore.id
   host_system_id   = data.vsphere_host.host.id
   guest_id         = data.vsphere_virtual_machine.template.guest_id
+  resource_pool_id = data.vsphere_resource_pool.pool.id
   scsi_type        = data.vsphere_virtual_machine.template.scsi_type
 
   # Set network parameters
