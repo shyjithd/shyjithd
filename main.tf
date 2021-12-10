@@ -71,8 +71,18 @@ resource "vsphere_virtual_machine" "vm-one" {
   }
   
   clone {
-    template_uuid = data.vsphere_virtual_machine.template.id   
+    template_uuid = data.vsphere_virtual_machine.template.id 
+    customize {
+      network_interface {
+        ipv4_address    = "192.168.1.100"
+        ipv4_netmask    = 24
+        dns_server_list = ["8.8.8.8", "8.8.4.4"]
+      }
+
+      ipv4_gateway = "192.168.1.254"
     }
   }
+  
+}
 
 
