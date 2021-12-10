@@ -17,11 +17,6 @@ data "vsphere_datacenter" "dc" {
   name = "Datacenter"
 }
 
-data "vsphere_resource_pool" "pool" {
-  # If you haven't resource pool, put "Resources" after cluster name
-  name          = "my-litle-cluster/Resources"
-  datacenter_id = data.vsphere_datacenter.dc.id
-}
 
 data "vsphere_host" "host" {
   name          = "192.168.1.104"
@@ -55,7 +50,6 @@ resource "vsphere_virtual_machine" "vm-one" {
   memory           = 4096
   datastore_id     = data.vsphere_datastore.datastore.id
   host_system_id   = data.vsphere_host.host.id
-  resource_pool_id = data.vsphere_resource_pool.pool.id
   guest_id         = data.vsphere_virtual_machine.template.guest_id
   scsi_type        = data.vsphere_virtual_machine.template.scsi_type
 
