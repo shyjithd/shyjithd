@@ -66,7 +66,7 @@ resource "vsphere_virtual_machine" "vm-one" {
 
   # Use a predefined vmware template has main disk
   disk {
-    name = "vm-one.vmdk"
+    name = "ubuntu-template.vmdk"
     size = "30"
   }
 
