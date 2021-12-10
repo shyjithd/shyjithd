@@ -50,7 +50,7 @@ data "vsphere_virtual_machine" "template" {
 
 # Set vm parameters
 resource "vsphere_virtual_machine" "vm-one" {
-  name             = "vm-one"
+  name             = "ubuntu-terraform1"
   num_cpus         = 2
   memory           = 4096
   datastore_id     = data.vsphere_datastore.datastore.id
@@ -75,7 +75,8 @@ resource "vsphere_virtual_machine" "vm-one" {
 
     customize {
       linux_options {
-        host_name = "vm-one"
+        host_name = "ubuntu-terraform1"
+        domain = "cpoc.local"
       }
 
       network_interface {
