@@ -76,7 +76,6 @@ resource "vsphere_virtual_machine" "vm-one" {
     customize {
       linux_options {
         host_name = "vm-one"
-        domain    = "test.internal"
       }
 
       network_interface {
