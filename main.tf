@@ -71,7 +71,7 @@ resource "vsphere_virtual_machine" "vm-one" {
   }
   
   clone {
-    template_uuid = data.vsphere_virtual_machine.template.i   
+    template_uuid = data.vsphere_virtual_machine.template.id   
     }
   }
 
