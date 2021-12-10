@@ -65,8 +65,9 @@ resource "vsphere_virtual_machine" "vm-one" {
   }
 
  disk {
-    name = "vm-one.vmdk"
+    label = "disk0"
     size = "30"
+   thin_provisioned = "true"
   }
   
   clone {
