@@ -42,7 +42,7 @@ data "vsphere_network" "network" {
 
 # Retrieve template information on vsphere
 data "vsphere_virtual_machine" "template" {
-  name          = "ubuntu-template"
+  name          = "Ubuntu-Base"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
@@ -73,6 +73,10 @@ resource "vsphere_virtual_machine" "vm-one" {
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id 
     customize {
+      linux_options {
+        host_name = "ubuntu-terraform1"
+        domain    = "cpoc.local"
+      }   
       network_interface {
         ipv4_address    = "192.168.1.109"
         ipv4_netmask    = 24
