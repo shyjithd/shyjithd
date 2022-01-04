@@ -74,7 +74,7 @@ resource "vsphere_virtual_machine" "vm-one" {
     template_uuid = data.vsphere_virtual_machine.template.id 
     customize {
       linux_options {
-        host_name = "ubuntu-terraform1"
+        host_name = "ubuntu-terraform2"
         domain    = "cpoc.local"
       }   
       network_interface {
