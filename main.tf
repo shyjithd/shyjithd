@@ -50,7 +50,7 @@ data "vsphere_virtual_machine" "template" {
 
 # Set vm parameters
 resource "vsphere_virtual_machine" "vm-one" {
-  name             = "ubuntu-terraform1"
+  name             = "ubuntu-terraform"
   num_cpus         = 2
   memory           = 4096
   datastore_id     = data.vsphere_datastore.datastore.id
